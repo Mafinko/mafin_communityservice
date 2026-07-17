@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mafin Community Service</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<main class="panel">
+		<aside class="sidebar">
+			<div class="brand">
+				<span class="shackle-icon" aria-hidden="true"></span>
+				<span>Mafin <strong>COMMUNITY</strong></span>
+			</div>
+
+			<div class="divider"></div>
+
+			<p class="nav-title">ACTIONS</p>
+			<nav class="tabs">
+				<button class="tab active" type="button" data-tab="assign">
+					<span class="shackle-icon small" aria-hidden="true"></span>
+					Assign Service
+				</button>
+				<button class="tab" type="button" data-tab="release">
+					<span class="shackle-icon small" aria-hidden="true"></span>
+					Release Player
+				</button>
+				<button class="tab" type="button" data-tab="logs">
+					<span class="shackle-icon small" aria-hidden="true"></span>
+					Logs
+				</button>
+			</nav>
+		</aside>
+
+		<section class="workspace">
+			<header class="topbar">
+				<div class="section-title">
+					<span class="shackle-icon small" aria-hidden="true"></span>
+					COMMUNITY SERVICE
+				</div>
+				<button class="icon-button" id="close" type="button" aria-label="Close">x</button>
+			</header>
+
+			<section class="stat-grid">
+				<div class="stat-card">
+					<span>Command</span>
+					<strong>/service</strong>
+				</div>
+				<div class="stat-card">
+					<span>Permission</span>
+					<strong>Admin</strong>
+				</div>
+				<div class="stat-card">
+					<span>Selected Mode</span>
+					<strong id="mode-label">Assign</strong>
+				</div>
+			</section>
+
+			<section class="form-shell">
+				<div class="form-header">
+					<span>*</span>
+					<strong id="form-title">ASSIGN COMMUNITY SERVICE</strong>
+				</div>
+
+				<form id="assign-form" class="view active">
+					<label>
+						Player ID
+						<input id="assign-target" type="number" min="1" placeholder="Player server ID" required>
+					</label>
+
+					<label>
+						Actions
+						<input id="assign-actions" type="number" min="1" placeholder="Amount of actions" required>
+					</label>
+
+					<label class="wide">
+						Reason
+						<textarea id="assign-reason" maxlength="180" placeholder="Example: Failed to follow police order" required></textarea>
+					</label>
+
+					<button class="primary wide" type="submit">Assign Service</button>
+				</form>
+
+				<form id="release-form" class="view">
+					<label>
+						Player ID
+						<input id="release-target" type="number" min="1" placeholder="Player server ID" required>
+					</label>
+
+					<label class="wide">
+						Release Reason
+						<textarea id="release-reason" maxlength="180" placeholder="Example: Sentence completed by admin review"></textarea>
+					</label>
+
+					<button class="danger wide" type="submit">Release Player</button>
+				</form>
+
+				<section id="logs-view" class="view logs-view">
+					<div class="log-categories wide">
+						<span>assign</span>
+						<span>release</span>
+						<span>complete</span>
+						<span>escape</span>
+						<span>security</span>
+					</div>
+
+					<div class="logs-list wide" id="logs-list">
+						<div class="empty-log">No logs yet.</div>
+					</div>
+				</section>
+			</section>
+		</section>
+	</main>
+
+	<aside class="service-hud" id="service-hud">
+		<p>COMMUNITY SERVICE</p>
+		<strong id="hud-reason">No reason provided</strong>
+		<span id="hud-actions">0 actions remaining</span>
+	</aside>
+
+	<script src="app.js"></script>
+</body>
+</html>
